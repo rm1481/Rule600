@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<title>jQuery Mobile Web App</title>
+<link rel="stylesheet" href="js/jquery.mobile-1.4.3.min.css" type="text/css"/>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="js/jquery.mobile-1.4.3.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function() {
+    $("#lens").on("keyup", function () {
+    var lens = $(this).val();
+    //var fullframe = 0;  // initialize the sum to zero
+    var fullframe = 600 / lens;
+    $('#fullframe').val(fullframe.toFixed(2));
+    var apsccanon = 600 / (lens * 1.6);
+    $('#apsccanon').val(apsccanon.toFixed(2));
+	var apscnikon = 600 / (lens * 1.5);
+    $('#apscnikon').val(apscnikon.toFixed(2));
+	});
+});
+</script>
+<style type="text/css">
+body,td,th {
+	color: #CCC;
+}
+</style>
+</head>  
+
+
+<body> 
+
+<div data-role="page" id="page" data-theme="b">
+    <div data-role="header">
+         <h3 style="color:#3CF">Astrophoto Tool</h3>
+
+    </div>
+    <div data-role="content">
+      <div align="center" style="color:#0F0">No Star Trails Exposure</div>
+      <p align="center" style=" color:#FFFF00">Rule 600 </p>
+    </div>
+    
+    <div data-role="content" data-theme="b">
+        <form action="">Lens: Focal  Length (mm)
+            <br>
+            <input type='text' id='lens' style="color:#FF6"/>
+            <br>Full Frame: (Time in Seconds)
+            <br>
+            <input type='text' id='fullframe' value="" style="color:#0F0" readonly>
+            <br>APS-C (Canon): (Time in Seconds)
+            <br>
+            <input type='text' id='apsccanon'  value="" style="color:#0F0" readonly />
+            <br>APS - C (Nikon): (Time in Seconds)
+            <br>
+            <input type='text' id='apscnikon' value="" style="color:#0F0" readonly />
+            <br>
+        </form>
+    </div>
+
+<div data-role="footer">
+		<h4 style="color:#3CF">&copy; Ranjan Mitra 2015</h4>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
